@@ -25,7 +25,7 @@ router.get('/search', async (req, res) => {
 router.get('/profile/:id', async (req, res) => {
   try {
     const user = await User.findById(req.params.id).select('-password');
-    if (!user) return res.status(404).json({ error: 'User not found' });
+    if (!user) return res.status(404).json({ error: 'No User Found' });
     res.json(user);
   } catch (err) {
     res.status(500).json({ error: err.message });
